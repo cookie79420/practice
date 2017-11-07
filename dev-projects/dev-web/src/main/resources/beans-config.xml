@@ -4,9 +4,28 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
+    <bean id="commonLoggerFactory" class="com.dev.logging.CommonLoggerFactory">
+        <property name="commonLogMapper">
+            <map>
+                <entry key="LogController" value="com.dev.api.LogController" />
+            </map>
+        </property>
+    </bean>
+
     <bean id="logController" class="com.dev.api.LogController">
         <property name="logService" ref="logService" />
     </bean>
+    <bean id="helloController" class="com.dev.api.HelloController">
+        <property name="accountService" ref="accountService" />
+    </bean>
 
-    <bean id="logService" class="com.dev.service.impl.LogServiceImpl" />
+    <bean id="logService" class="com.dev.service.impl.LogServiceImpl">
+        <property name="logDao" ref="logDao" />
+    </bean>
+    <bean id="accountService" class="com.dev.service.impl.AccountServiceImpl">
+        <property name="accountDao" ref="accountDao" />
+    </bean>
+
+    <bean id="logDao" class="com.dev.dao.impl.LogDaoImpl" />
+    <bean id="accountDao" class="com.dev.dao.impl.AccountDaoImpl" />
 </beans>
