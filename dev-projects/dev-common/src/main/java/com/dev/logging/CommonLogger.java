@@ -77,7 +77,20 @@ public class CommonLogger {
         if (TextUtils.isBlank(traceId)) {
             MappedDiagnosticContext.setTraceId(UUID.randomUUID().toString());
         }
-        return LoggerFactory.getLogger(Thread.currentThread().getStackTrace()[3].getClassName());
+        return LoggerFactory.getLogger(getCallerClassName());
+    }
+
+    private static String getCallerClassName() {
+        StackTraceElement[] elements = Thread.currentThread().getStackTrace();
+        String callerClassName = null;
+        for (int i = 1; i < elements.length; i++) {
+            String className = elements[i].getClassName();
+            if (className.equals(CommonLogger.class.getName()) == false) {
+                callerClassName = className;
+                break;
+            }
+        }
+        return callerClassName;
     }
 
     public static void setLogMapper(Map<String, String> logMapper) {

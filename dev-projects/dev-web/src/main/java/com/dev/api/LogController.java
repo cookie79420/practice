@@ -28,7 +28,7 @@ public class LogController {
 
     @RequestMapping("/log/show")
     public String show() {
-        CommonLogger.initLogger("LogController.show");
+//        CommonLogger.initLogger("LogController.show");
         CommonLogger.getLogger().info("show start.");
         String result;
         try {
