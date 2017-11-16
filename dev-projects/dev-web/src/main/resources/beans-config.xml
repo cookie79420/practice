@@ -4,8 +4,8 @@
     xsi:schemaLocation="http://www.springframework.org/schema/beans
     http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
 
-    <bean id="commonLoggerFactory" class="com.dev.logging.CommonLoggerFactory">
-        <property name="commonLogMapper">
+    <bean id="commonLogger" class="com.dev.logging.CommonLogger">
+        <property name="logMapper">
             <map>
                 <entry key="LogController" value="com.dev.api.LogController" />
             </map>

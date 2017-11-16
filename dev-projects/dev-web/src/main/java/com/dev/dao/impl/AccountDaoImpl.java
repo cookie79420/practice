@@ -3,7 +3,7 @@ package com.dev.dao.impl;
 import java.util.HashMap;
 import java.util.Map;
 import com.dev.dao.AccountDao;
-import com.dev.logging.CommonLoggerFactory;
+import com.dev.logging.CommonLogger;
 
 public class AccountDaoImpl implements AccountDao {
 
@@ -12,7 +12,7 @@ public class AccountDaoImpl implements AccountDao {
         Map<String, String> map = new HashMap<String, String>();
         map.put("F_NAME", "Cookie");
         map.put("L_NAME", "Chen");
-        CommonLoggerFactory.getLogger()
+        CommonLogger.getLogger()
                 .info(String.format("account:%s, first name:%s, last name:%s", account,
                         map.get("F_NAME"), map.get("L_NAME")));
         return map;
