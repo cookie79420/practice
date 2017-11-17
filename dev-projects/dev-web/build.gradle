@@ -3,12 +3,12 @@ import org.gradle.plugins.ide.eclipse.model.Facet
 apply plugin: 'war'
 apply plugin: 'eclipse-wtp'
 
-webAppDirName = 'WebContent'
+webAppDirName = 'webContent'
 eclipse.classpath.defaultOutputDir = file('webContent/WEB-INF/classes')
 
 dependencies {
-    compile project(':dev-common')
-    compile group: 'org.springframework.boot', name: 'spring-boot-starter-web', version: '1.5.8.RELEASE'
+    compile library.dev_common
+    compile library.spring_boot_starter_web
 }
 
 eclipse {

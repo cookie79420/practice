@@ -1,19 +1,25 @@
+allprojects{
+    apply from: "${rootProject.projectDir}/libraries.gradle"
+}
+
 subprojects {
     apply plugin: 'java'
 
     group = 'com.dev'
     version = '1.0.0'
 
+    [ compileJava, compileTestJava, javadoc ]*.options*.encoding = 'UTF-8'
+
     sourceCompatibility = '1.8'
     targetCompatibility = '1.8'
 
-    [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
-
     repositories {
+        mavenLocal()
         mavenCentral()
     }
 
-    dependencies {
-        testCompile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
+    dependencies{
+        testCompile library.testng
+        testCompile library.logback_classic
     }
 }
