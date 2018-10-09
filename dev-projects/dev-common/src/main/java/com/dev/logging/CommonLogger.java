@@ -9,7 +9,7 @@ import com.dev.util.TextUtils;
 public class CommonLogger {
     private static final Logger logger = LoggerFactory.getLogger(CommonLogger.class);
 
-    private static ThreadLocal<Logger> threadLocalLogger = new ThreadLocal<Logger>();
+    private static ThreadLocal<Logger> threadLocalLogger = new ThreadLocal<>();
     private static Map<String, String> logMapper;
 
     public static void initLogger(String command) {

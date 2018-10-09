@@ -5,3 +5,5 @@
 bin
 classes
 build
+.idea
+out
